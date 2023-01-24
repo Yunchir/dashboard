@@ -1,0 +1,11 @@
+.App {
+  min-width: 1200px;
+  display: flex;
+  height: 100vh;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.main {
+  display: flex;
+}
