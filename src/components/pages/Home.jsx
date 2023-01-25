@@ -3,12 +3,11 @@ import "../../styles/home.css";
 import { data } from "../../util/data";
 
 export default function Home() {
-  console.log(data);
   return (
-    <div className="">
+    <div>
       <table>
         <thead>
-          <tr>
+          <tr className="list-name">
             <td>Зураг</td>
             <td>Барааны нэр</td>
             <td>Үнэ</td>
@@ -18,10 +17,10 @@ export default function Home() {
         </thead>
         <tbody>
           {data.map((products) => (
-            <tr>
+            <tr className="product">
               <td>
                 {" "}
-                <img src={products.image} alt="" />{" "}
+                <img className="product-img" src={products.image} alt="" />{" "}
               </td>
               <td>{products.brand}</td>
               <td>{products.price}</td>

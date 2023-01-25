@@ -6,8 +6,15 @@ import Home from "./components/pages/Home.jsx";
 import Products from "./components/pages/Products.jsx";
 import Users from "./components/pages/Users.jsx";
 import "./App.css";
+import axios from "axios";
+import { useEffect } from "react";
 
 export default function Dashboard() {
+  useEffect(() => {
+    axios
+      .get("http://localhost:2020/products")
+      .then((res) => console.log(res.data));
+  }, []);
   return (
     <div className="app">
       <Header />
