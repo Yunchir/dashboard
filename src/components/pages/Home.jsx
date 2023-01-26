@@ -16,20 +16,23 @@ export default function Home() {
           </tr>
         </thead>
         <tbody>
-          {data.map((products) => (
+          {data.map((Latest) => (
             <tr className="product">
               <td>
                 {" "}
-                <img className="product-img" src={products.image} alt="" />{" "}
+                <img className="product-img" src={Latest.image} alt="" />{" "}
               </td>
-              <td>{products.brand}</td>
-              <td>{products.price}</td>
-              <td>{products.sale}</td>
-              <td>{products.caticory}</td>
+              <td>{Latest.brand}</td>
+              <td>{Latest.price}</td>
+              <td>{Latest.sale}</td>
+              <td>{Latest.caticory}</td>
             </tr>
           ))}
         </tbody>
       </table>
+      <div>
+        <button> </button> <a href="/"> 1 </a>
+      </div>
     </div>
   );
 }

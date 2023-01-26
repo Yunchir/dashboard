@@ -8,6 +8,7 @@ import Users from "./components/pages/Users.jsx";
 import "./App.css";
 import axios from "axios";
 import { useEffect } from "react";
+import Orders from "./components/pages/Orders";
 
 export default function Dashboard() {
   useEffect(() => {
@@ -24,6 +25,7 @@ export default function Dashboard() {
           <Route path="/" element={<Home />} />
           <Route path="/Products" element={<Products />} />
           <Route path="/Users" element={<Users />} />
+          <Route path="/Orders" element={<Orders />} />
         </Routes>
       </div>
     </div>
