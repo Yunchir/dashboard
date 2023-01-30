@@ -2,7 +2,7 @@ import React from "react";
 import "../../styles/users.css";
 import { data } from "../../util/data";
 
-export default function Users() {
+export default function Moderator() {
   return (
     <div>
       <div>
@@ -15,7 +15,7 @@ export default function Users() {
       </div>
       <table>
         <thead>
-          <tr className="orders-list">
+          <tr className="Moderator-list">
             <td>User Id</td>
             <td>Овог</td>
             <td>Нэр</td>
@@ -26,15 +26,15 @@ export default function Users() {
           </tr>
         </thead>
         <tbody>
-          {data.map((users) => (
-            <tr className="users">
-              <td className="td">{users.order}</td>
-              <td>{users.sureName}</td>
-              <td>{users.firstName}</td>
-              <td>{users.email}</td>
-              <td>{users.number}</td>
-              <td>{users.num}</td>
-              <td>{users.date}</td>
+          {data.map((Moderator) => (
+            <tr className="Moderator">
+              <td className="td">{Moderator.order}</td>
+              <td>{Moderator.sureName}</td>
+              <td>{Moderator.firstName}</td>
+              <td>{Moderator.email}</td>
+              <td>{Moderator.number}</td>
+              <td>{Moderator.num}</td>
+              <td>{Moderator.date}</td>
             </tr>
           ))}
         </tbody>

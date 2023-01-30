@@ -5,16 +5,20 @@ import "./styles/dashboard.css";
 import Home from "./components/pages/Home.jsx";
 import Products from "./components/pages/Products.jsx";
 import Users from "./components/pages/Users.jsx";
+import Latest from "./components/pages/Latest";
 import "./App.css";
 import axios from "axios";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Orders from "./components/pages/Orders";
+import Moderator from "./components/pages/Moderators";
+import Settings from "./components/pages/Settings";
 
 export default function Dashboard() {
+  const [data, setData] = useState();
   useEffect(() => {
     axios
       .get("http://localhost:2020/products")
-      .then((res) => console.log(res.data));
+      .then((res) => setData(res.data));
   }, []);
   return (
     <div className="app">
@@ -23,9 +27,12 @@ export default function Dashboard() {
         <SideMenu />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/Products" element={<Products />} />
+          <Route path="/Products" element={<Products data={data} />} />
           <Route path="/Users" element={<Users />} />
           <Route path="/Orders" element={<Orders />} />
+          <Route path="/Latest" element={<Latest />} />
+          <Route path="/Moderator" element={<Moderator />} />
+          <Route path="/Settings" element={<Settings />} />
         </Routes>
       </div>
     </div>
