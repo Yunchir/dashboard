@@ -1,12 +1,20 @@
-import { React } from "react";
+import { React, useState } from "react";
 import Detail from "../../components/pages/Detail";
+import axios from "axios";
+import "../../styles/products.css";
+import Dropdown from "react-bootstrap/Dropdown";
 
 export default function Products(prop) {
+  const [show, setShow] = useState(false);
+  const [product, setproduct] = useState();
   const { data } = prop;
+  function deleteProductHandler(id) {
+    axios.delete(`http://localhost:2020/delete/${id}`);
+  }
   return (
     <div>
       <div>
-        <Detail />
+        <Detail setShow={setShow} show={show} data={product} />
         <div>
           <h2>Бүтээгдэхүүүн</h2>
         </div>
@@ -18,12 +26,13 @@ export default function Products(prop) {
       <table>
         <thead>
           <tr className="list-name">
-            <td>zurg</td>
+            <td className="list-name">zurg</td>
             <td>Барааны нэр</td>
             <td>Үнэ</td>
             <td>Үлдэгдэл</td>
             <td>Хямдрал</td>
             <td>Kaтегори</td>
+            <td>Устгах</td>
           </tr>
         </thead>
         <tbody>
@@ -32,13 +41,43 @@ export default function Products(prop) {
               <tr className="product" key={index}>
                 {" "}
                 <td>
-                  <img className="home-img" src={product.image} alt="" />
+                  <img
+                    className="home-img"
+                    src={product.image}
+                    alt="product-img"
+                  />
                 </td>
-                <td>{product.brand}</td>
+                <td className="proBrand">{product.name}</td>
                 <td>{product.price}</td>
-                <td>{product.num}</td>
+                <td>{product.stock}</td>
                 <td>{product.sale}</td>
-                <td>{product.caticory}</td>
+                <td>{product.category}</td>
+                <td>
+                  <Dropdown>
+                    <Dropdown.Toggle
+                      variant="success"
+                      id="dropdown-basic"
+                    ></Dropdown.Toggle>
+                    <Dropdown.Menu>
+                      <Dropdown.Item
+                        href="#"
+                        onClick={() => {
+                          setShow(true);
+                          setproduct(product);
+                        }}
+                      >
+                        Өөрчлөх
+                      </Dropdown.Item>
+                      <Dropdown.Item
+                        href="#"
+                        onClick={() => deleteProductHandler(product.id)}
+                      >
+                        Устгах
+                      </Dropdown.Item>
+                      <Dropdown.Item href="#">Нуух</Dropdown.Item>
+                    </Dropdown.Menu>
+                  </Dropdown>
+                </td>
               </tr>
             ))}
         </tbody>

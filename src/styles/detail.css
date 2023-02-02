@@ -2,3 +2,20 @@
     display: flex;
     flex-wrap: wrap;
 }
+
+.off-order-main-top{
+    display: flex;
+    gap: 20px;
+}
+
+.off-order-footer-main{
+    display: flex;
+    gap: 20px;
+}
+
+.off-order-footer-footer{
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    width: 100%;
+}

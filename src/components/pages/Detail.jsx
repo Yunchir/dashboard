@@ -3,9 +3,10 @@ import Button from "react-bootstrap/Button";
 import Offcanvas from "react-bootstrap/Offcanvas";
 import ProductsModal from "./ProductsModal";
 import axios from "axios";
+import "../../styles/detail.css";
 
-export default function Example() {
-  const [show, setShow] = useState(false);
+export default function Detail(prop) {
+  const { data, setShow, show } = prop;
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -13,7 +14,9 @@ export default function Example() {
 
   function send(e) {
     e.preventDefault();
+
     axios.post("http://localhost:2020/products", {
+      image: e.target.proImage.value,
       brand: e.target.proName.value,
       price: e.target.proPrice.value,
       sale: e.target.proSale.value,
@@ -37,12 +40,11 @@ export default function Example() {
             <div className="off-order-top">
               <section className="off-order-top-head">
                 <p>Барааны зураг</p>
-              </section>
-
-              <section className="off-order-top-body">
-                <section className="off-order-top-body-start">
-                  <img className="off-order-top-img" src="" alt="asd" />
-                </section>
+                <input
+                  type="text"
+                  name="proImage"
+                  defaultValue={data ? data.image : ""}
+                />
               </section>
             </div>
             <form className="off-order-main" onSubmit={send}>
@@ -50,21 +52,38 @@ export default function Example() {
                 <section className="off-order-main-top-start">
                   <section>
                     <p>Барааны нэр</p>
-                    <input type="text" name="proName" />
+                    <input
+                      type="text"
+                      name="proName"
+                      defaultValue={data ? data.name : ""}
+                    />
                   </section>
                   <section>
                     <p>Барааны үнэ</p>
-                    <input type="text" name="proPrice" />
+                    <input
+                      type="text"
+                      name="proPrice"
+                      defaultValue={data ? data.price : ""}
+                    />
                   </section>
 
                   <section>
                     <p>Үзүүлэлт</p>
-                    <input type="text" name="proStatus" />
+                    <input
+                      type="text"
+                      name="proStatus"
+                      defaultValue={data ? data.stock : ""}
+                    />
                   </section>
                 </section>
                 <section>
                   <p>Хямдрал(%-иар)</p>
-                  <input type="text" name="proSale" id="" />
+                  <input
+                    type="text"
+                    name="proSale"
+                    id=""
+                    defaultValue={data ? data.sale : ""}
+                  />
                 </section>
                 <div>
                   <span>Үзүүлэлтүүд</span>

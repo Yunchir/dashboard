@@ -1,3 +1,15 @@
+.list-name{
+    margin-right: 10px;
+}
+
+.home-img{
+    width: 100px;
+}
+
 .product{
     gap: 20px;
+}
+
+.proBrand{
+    margin-right: 20px;
 }
