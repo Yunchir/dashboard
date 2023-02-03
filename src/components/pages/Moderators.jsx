@@ -26,17 +26,18 @@ export default function Moderator() {
           </tr>
         </thead>
         <tbody>
-          {data.map((Moderator) => (
-            <tr className="Moderator">
-              <td className="td">{Moderator.order}</td>
-              <td>{Moderator.sureName}</td>
-              <td>{Moderator.firstName}</td>
-              <td>{Moderator.email}</td>
-              <td>{Moderator.number}</td>
-              <td>{Moderator.num}</td>
-              <td>{Moderator.date}</td>
-            </tr>
-          ))}
+          {data &&
+            data.map((Moderator) => (
+              <tr className="Moderator">
+                <td className="td">{Moderator.order}</td>
+                <td>{Moderator.sureName}</td>
+                <td>{Moderator.firstName}</td>
+                <td>{Moderator.email}</td>
+                <td>{Moderator.number}</td>
+                <td>{Moderator.num}</td>
+                <td>{Moderator.date}</td>
+              </tr>
+            ))}
         </tbody>
       </table>
     </div>

@@ -25,19 +25,20 @@ export default function Orders() {
           </tr>
         </thead>
         <tbody>
-          {data.map((orders) => (
-            <tr className="orders">
-              <td className="td">{orders.order}</td>
-              <td>{orders.date}</td>
-              <td>{orders.number}</td>
-              <td>{orders.email}</td>
-              <td>{orders.address}</td>
-              <td>{orders.num}</td>
-              <td>{orders.price}</td>
-              <td>{orders.pay}</td>
-              <td>{orders.status}</td>
-            </tr>
-          ))}
+          {data &&
+            data.map((orders) => (
+              <tr className="orders">
+                <td>{orders.order}</td>
+                <td>{orders.date}</td>
+                <td>{orders.number}</td>
+                <td>{orders.email}</td>
+                <td>{orders.address}</td>
+                <td>{orders.num}</td>
+                <td>{orders.price}</td>
+                <td>{orders.pay}</td>
+                <td>{orders.status}</td>
+              </tr>
+            ))}
         </tbody>
       </table>
     </div>

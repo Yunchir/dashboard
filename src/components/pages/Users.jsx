@@ -26,17 +26,18 @@ export default function Users() {
           </tr>
         </thead>
         <tbody>
-          {data.map((users) => (
-            <tr className="users">
-              <td className="td">{users.order}</td>
-              <td>{users.sureName}</td>
-              <td>{users.firstName}</td>
-              <td>{users.email}</td>
-              <td>{users.number}</td>
-              <td>{users.num}</td>
-              <td>{users.date}</td>
-            </tr>
-          ))}
+          {data &&
+            data.map((users) => (
+              <tr className="users">
+                <td className="td">{users.order}</td>
+                <td>{users.sureName}</td>
+                <td>{users.firstName}</td>
+                <td>{users.email}</td>
+                <td>{users.number}</td>
+                <td>{users.num}</td>
+                <td>{users.date}</td>
+              </tr>
+            ))}
         </tbody>
       </table>
     </div>

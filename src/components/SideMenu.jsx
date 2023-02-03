@@ -11,7 +11,7 @@ export default function SideMenu() {
         <button
           className="sideMenu-button"
           onClick={() => {
-            navigate("");
+            navigate("/");
           }}
         >
           Хянах самбар

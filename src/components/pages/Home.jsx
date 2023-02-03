@@ -7,13 +7,14 @@ export default function Home() {
     <div>
       <table>
         <tbody>
-          {data.map((home) => (
-            <div className="home">
-              {" "}
-              <img className="home-img" src={home.image} alt="" />
-              {home.brand}
-            </div>
-          ))}
+          {data &&
+            data.map((home) => (
+              <div className="home">
+                {" "}
+                <img className="home-img" src={home.image} alt="" />
+                {home.brand}
+              </div>
+            ))}
         </tbody>
       </table>
       <div>
