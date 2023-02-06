@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+// import ProductsModal from "./ProductsModal";
+// import React, { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Offcanvas from "react-bootstrap/Offcanvas";
-import ProductsModal from "./ProductsModal";
 import axios from "axios";
 import "../../styles/detail.css";
 
@@ -10,17 +10,17 @@ export default function Detail(prop) {
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-  const [hi, setHi] = useState([]);
+  // const [hi, setHi] = useState([]);
 
   function send(e) {
     e.preventDefault();
 
     axios.post("http://localhost:2020/products", {
-      image: e.target.proImage.value,
+      // image: e.target.proImage.value,
       brand: e.target.proName.value,
       price: e.target.proPrice.value,
       sale: e.target.proSale.value,
-      caticory: e.target.proStatus.value,
+      category: e.target.proStatus.value,
     });
   }
 
@@ -85,10 +85,10 @@ export default function Detail(prop) {
                     defaultValue={data ? data.sale : ""}
                   />
                 </section>
-                <div>
+                {/* <div>
                   <span>Үзүүлэлтүүд</span>
-                </div>
-                <section>
+                </div> */}
+                {/* <section>
                   <p>Багтаамж</p>
                   <input type="text" name="" id="" />
                 </section>
@@ -99,8 +99,8 @@ export default function Detail(prop) {
                 <section>
                   <p>Хүчдэл</p>
                   <input type="text" name="" id="" />
-                </section>
-                <section>
+                </section> */}
+                {/* <section>
                   <p>Хэмжээ</p>
                   <input type="text" name="" id="" />
                 </section>
@@ -115,14 +115,14 @@ export default function Detail(prop) {
                 <section>
                   <p>Нэмэлт утасны дугаар</p>
                   <input type="text" />
-                </section>
+                </section> */}
               </section>
               <button className="off-order-footer-footer-button" type="submit">
                 ХАДГАЛАХ
               </button>
             </form>
             <form className="off-order-footer">
-              <div>
+              {/* <div>
                 <ProductsModal setHi={setHi} hi={hi} />
                 {hi &&
                   hi.map((i) => {
@@ -134,9 +134,9 @@ export default function Detail(prop) {
                       </div>
                     );
                   })}
-              </div>
+              </div> */}
 
-              <section className="off-order-footer-main">
+              {/* <section className="off-order-footer-main">
                 <section>
                   <p>Категори сонгох</p>
                   <input type="text" />
@@ -155,7 +155,7 @@ export default function Detail(prop) {
                 >
                   ХАДГАЛАХ
                 </button>
-              </section>
+              </section> */}
             </form>
           </div>
         </Offcanvas.Body>
