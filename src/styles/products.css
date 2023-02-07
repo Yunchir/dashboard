@@ -1,9 +1,12 @@
 .list-name{
     margin-right: 10px;
+    gap: 20px;
 }
 
 .home-img{
     width: 100px;
+    margin: 10px;
+
 }
 
 .product{
@@ -12,4 +15,43 @@
 
 .proBrand{
     margin-right: 20px;
+}
+
+.procategory{
+    padding: 10px;
+    background-color: #003583;
+    color: #f4f4f4;
+    border-radius: 10px;
+    height: 20px;
+    width: 100px;
+}
+
+.list-cate{
+    height: 100px;
+    width: 100px;
+    margin-top: 50px;
+}
+
+.list-category{
+   padding: 20px;
+}
+
+.proSearch{
+    display: flex;
+    justify-content: space-between;
+}
+
+.proSearch-btn{
+    padding: 10px;
+    background-color: #003583;
+    color: #f4f4f4;
+    border-radius: 10px;
+    border: none;
+}
+
+.proSearch-input{
+    border: none;
+    background-color: #f4f4f4;
+    padding: 10px;
+    border-radius: 5px;
 }

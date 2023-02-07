@@ -17,10 +17,11 @@ export default function Detail(prop) {
 
     axios.post("http://localhost:2020/products", {
       // image: e.target.proImage.value,
-      brand: e.target.proName.value,
+      name: e.target.proName.value,
       price: e.target.proPrice.value,
+      stock: e.target.proStock.value,
       sale: e.target.proSale.value,
-      category: e.target.proStatus.value,
+      // category: e.target.proCategory.value,
     });
   }
 
@@ -68,10 +69,10 @@ export default function Detail(prop) {
                   </section>
 
                   <section>
-                    <p>Үзүүлэлт</p>
+                    <p>Үлдэгдэл</p>
                     <input
                       type="text"
-                      name="proStatus"
+                      name="proStock"
                       defaultValue={data ? data.stock : ""}
                     />
                   </section>
@@ -85,44 +86,29 @@ export default function Detail(prop) {
                     defaultValue={data ? data.sale : ""}
                   />
                 </section>
-                {/* <div>
-                  <span>Үзүүлэлтүүд</span>
-                </div> */}
                 {/* <section>
-                  <p>Багтаамж</p>
-                  <input type="text" name="" id="" />
-                </section>
-                <section>
-                  <p>Цахилгаан зарцуулалт</p>
-                  <input type="text" name="" id="" />
-                </section>
-                <section>
-                  <p>Хүчдэл</p>
-                  <input type="text" name="" id="" />
-                </section> */}
-                {/* <section>
-                  <p>Хэмжээ</p>
-                  <input type="text" name="" id="" />
-                </section>
-                <section>
-                  <p>Баталгаам хугцаа</p>
-                  <input type="text" name="" id="" />
-                </section>
-                <section>
-                  <p>Тайлбар</p>
-                  <input type="text" name="" id="" />
-                </section>
-                <section>
-                  <p>Нэмэлт утасны дугаар</p>
-                  <input type="text" />
+                  <p>category</p>
+                  <input
+                    type="text"
+                    name="proCategory"
+                    defaultValue={data ? data.category : ""}
+                  />
                 </section> */}
               </section>
+              <select id="category" name="category">
+                <option value="appliances">appliances</option>
+                <option value="computers & tablets">computers & tablets</option>
+                <option value="gaming console">gaming console</option>
+                <option value="telescope">telescope</option>
+              </select>
               <button className="off-order-footer-footer-button" type="submit">
                 ХАДГАЛАХ
               </button>
+
+              {/* defaultValue={data ? data.sale : ""} */}
             </form>
-            <form className="off-order-footer">
-              {/* <div>
+            {/* <form className="off-order-footer">
+              <div>
                 <ProductsModal setHi={setHi} hi={hi} />
                 {hi &&
                   hi.map((i) => {
@@ -134,9 +120,9 @@ export default function Detail(prop) {
                       </div>
                     );
                   })}
-              </div> */}
+              </div>
 
-              {/* <section className="off-order-footer-main">
+              <section className="off-order-footer-main">
                 <section>
                   <p>Категори сонгох</p>
                   <input type="text" />
@@ -155,8 +141,8 @@ export default function Detail(prop) {
                 >
                   ХАДГАЛАХ
                 </button>
-              </section> */}
-            </form>
+              </section>
+            </form> */}
           </div>
         </Offcanvas.Body>
       </Offcanvas>
