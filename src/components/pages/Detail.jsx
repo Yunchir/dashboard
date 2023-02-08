@@ -1,12 +1,15 @@
 // import ProductsModal from "./ProductsModal";
-// import React, { useState } from "react";
+import React, { useContext } from "react";
 import Button from "react-bootstrap/Button";
 import Offcanvas from "react-bootstrap/Offcanvas";
 import axios from "axios";
 import "../../styles/detail.css";
+import { DataContext } from "../../App.js";
 
 export default function Detail(prop) {
-  const { data, setShow, show } = prop;
+  const { setShow, show } = prop;
+
+  const { data, setData } = useContext(DataContext);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -21,8 +24,9 @@ export default function Detail(prop) {
       price: e.target.proPrice.value,
       stock: e.target.proStock.value,
       sale: e.target.proSale.value,
-      // category: e.target.proCategory.value,
+      category: e.target.category.value,
     });
+    console.log("dataa name:", data[0].name);
   }
 
   return (

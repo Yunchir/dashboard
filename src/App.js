@@ -8,33 +8,42 @@ import Users from "./components/pages/Users.jsx";
 import Latest from "./components/pages/Latest";
 import "./App.css";
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import Orders from "./components/pages/Orders";
 import Moderator from "./components/pages/Moderators";
 import Settings from "./components/pages/Settings";
 
+export const DataContext = createContext();
+
 export default function Dashboard() {
-  const [data, setData] = useState();
+  const [data, setData] = useState([]);
+  // const [products, setProducts] = useState([]);
+
   useEffect(() => {
     axios
       .get("http://localhost:2020/products")
       .then((res) => setData(res.data));
   }, []);
+  console.log("data:", data);
+
   return (
     <div className="app">
-      <Header />
-      <div className="main">
-        <SideMenu />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/Products" element={<Products data={data} />} />
-          <Route path="/Users" element={<Users />} />
-          <Route path="/Orders" element={<Orders />} />
-          <Route path="/Latest" element={<Latest />} />
-          <Route path="/Moderator" element={<Moderator />} />
-          <Route path="/Settings" element={<Settings />} />
-        </Routes>
-      </div>
+      <DataContext.Provider value={{ data: data, setData: setData }}>
+        <Header />
+        <div className="main">
+          <SideMenu />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/Products" element={<Products />} />
+            {/* data={data} */}
+            <Route path="/Users" element={<Users />} />
+            <Route path="/Orders" element={<Orders />} />
+            <Route path="/Latest" element={<Latest />} />
+            <Route path="/Moderator" element={<Moderator />} />
+            <Route path="/Settings" element={<Settings />} />
+          </Routes>
+        </div>
+      </DataContext.Provider>
     </div>
   );
 }
