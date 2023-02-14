@@ -153,3 +153,24 @@ export default function Detail(prop) {
     </div>
   );
 }
+
+// app.put("/products", (request, response) => {
+//   fs.readFile("./data/product.json", (err, products) => {
+//     if (err) {
+//       res.status(500).send({ message: "not working" });
+//     } else {
+//       let data = JSON.parse(products);
+//       let product = data.find((product) => product.id == request.params.id);
+//       data[data.indexOf(product)] = request.body;
+
+//       fs.writeFile("./data/product.json", JSON.stringify(data), (err) => {
+//         if (err) {
+//           response.status(500).send({ message: "err" });
+//         } else {
+//           request.status(200).send({ massage: "working" });
+//         }
+//       });
+//       res.send(data);
+//     }
+//   });
+// });
