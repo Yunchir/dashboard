@@ -1,21 +1,27 @@
-.off-order-main-top-start{
-    display: flex;
-    flex-wrap: wrap;
+.off-order-main-top-start {
+  display: flex;
+  flex-wrap: wrap;
 }
 
-.off-order-main-top{
-    display: flex;
-    gap: 20px;
+.off-order-main-top {
+  display: flex;
+  gap: 20px;
 }
 
-.off-order-footer-main{
-    display: flex;
-    gap: 20px;
+.off-order-footer-main {
+  display: flex;
+  gap: 20px;
 }
 
-.off-order-footer-footer{
-    display: flex;
-    justify-content: center;
-    margin-top: 20px;
-    width: 100%;
+.off-order-footer-footer {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  width: 100%;
+}
+
+.fileName {
+  display: flex;
+  width: 100%;
+  margin: 10px;
 }

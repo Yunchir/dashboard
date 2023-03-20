@@ -46,7 +46,30 @@ export default function Detail(prop) {
               <section className="off-order-top-head">
                 <p>Барааны зураг</p>
                 <input
-                  type="text"
+                  className="fileName"
+                  type="file"
+                  // value={upload}
+                  name="proImage"
+                  defaultValue={data ? data.image : ""}
+                />
+                <input
+                  className="fileName"
+                  type="file"
+                  // value={upload}
+                  name="proImage"
+                  defaultValue={data ? data.image : ""}
+                />
+                <input
+                  className="fileName"
+                  type="file"
+                  // value={upload}
+                  name="proImage"
+                  defaultValue={data ? data.image : ""}
+                />
+                <input
+                  className="fileName"
+                  type="file"
+                  // value={upload}
                   name="proImage"
                   defaultValue={data ? data.image : ""}
                 />
@@ -60,6 +83,7 @@ export default function Detail(prop) {
                     <input
                       type="text"
                       name="proName"
+                      placeholder="Name"
                       defaultValue={data ? data.name : ""}
                     />
                   </section>
@@ -68,6 +92,7 @@ export default function Detail(prop) {
                     <input
                       type="text"
                       name="proPrice"
+                      placeholder="Price"
                       defaultValue={data ? data.price : ""}
                     />
                   </section>
@@ -77,6 +102,7 @@ export default function Detail(prop) {
                     <input
                       type="text"
                       name="proStock"
+                      placeholder="Stock"
                       defaultValue={data ? data.stock : ""}
                     />
                   </section>
@@ -87,6 +113,7 @@ export default function Detail(prop) {
                     type="text"
                     name="proSale"
                     id=""
+                    placeholder="Sale"
                     defaultValue={data ? data.sale : ""}
                   />
                 </section>
