@@ -28,6 +28,11 @@ export default function Detail(prop) {
     });
     console.log("dataa name:", data[0].name);
   }
+  function uploadHandler(e) {
+    const image = new FormData();
+    image.append("image", e.target.files[0]);
+    console.log(e.target.files[0]);
+  }
 
   return (
     <div>
@@ -46,6 +51,7 @@ export default function Detail(prop) {
               <section className="off-order-top-head">
                 <p>Барааны зураг</p>
                 <input
+                  onChange={uploadHandler}
                   className="fileName"
                   type="file"
                   // value={upload}
@@ -53,6 +59,7 @@ export default function Detail(prop) {
                   defaultValue={data ? data.image : ""}
                 />
                 <input
+                  onChange={uploadHandler}
                   className="fileName"
                   type="file"
                   // value={upload}
@@ -60,6 +67,7 @@ export default function Detail(prop) {
                   defaultValue={data ? data.image : ""}
                 />
                 <input
+                  onChange={uploadHandler}
                   className="fileName"
                   type="file"
                   // value={upload}
@@ -67,6 +75,7 @@ export default function Detail(prop) {
                   defaultValue={data ? data.image : ""}
                 />
                 <input
+                  onChange={uploadHandler}
                   className="fileName"
                   type="file"
                   // value={upload}
