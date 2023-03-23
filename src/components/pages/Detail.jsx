@@ -18,7 +18,7 @@ export default function Detail(prop) {
   function send(e) {
     e.preventDefault();
 
-    axios.post("http://localhost:2020/products", {
+    axios.post("http://localhost:2020/products/add", {
       // image: e.target.proImage.value,
       name: e.target.proName.value,
       price: e.target.proPrice.value,
@@ -141,7 +141,11 @@ export default function Detail(prop) {
                 <option value="gaming console">gaming console</option>
                 <option value="telescope">telescope</option>
               </select>
-              <button className="off-order-footer-footer-button" type="submit">
+              <button
+                className="off-order-footer-footer-button"
+                type="submit"
+                onClick={send}
+              >
                 ХАДГАЛАХ
               </button>
 
