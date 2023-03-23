@@ -12,6 +12,7 @@ import { createContext, useEffect, useState } from "react";
 import Orders from "./components/pages/Orders";
 import Moderator from "./components/pages/Moderators";
 import Settings from "./components/pages/Settings";
+import Login from "./components/pages/Login.jsx";
 
 export const DataContext = createContext();
 
@@ -35,6 +36,7 @@ export default function Dashboard() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/Products" element={<Products />} />
+            <Route path="/login" element={<Login />} />
             {/* data={data} */}
             <Route path="/Users" element={<Users />} />
             <Route path="/Orders" element={<Orders />} />

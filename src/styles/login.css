@@ -1,0 +1,21 @@
+.signIn {
+  text-decoration: none;
+  color: #003585;
+}
+
+.bord {
+  border: 1px solid #333;
+  height: 200px;
+  width: 450px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 100px;
+  border-radius: 5px;
+}
+
+.loginputs {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}

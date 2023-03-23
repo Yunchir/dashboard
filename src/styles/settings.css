@@ -1,14 +1,15 @@
-.settings-inputs{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 300px;
-    height: 300px;
-    gap: 20px;
-    background-color: beige;
+.settings-inputs {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 300px;
+  height: 300px;
+  gap: 20px;
+  background-color: rgb(203, 203, 202);
+  border-radius: 5px;
 }
-.settings-art{
-    display: flex;
-    flex-direction: column;
+.settings-art {
+  display: flex;
+  flex-direction: column;
 }
