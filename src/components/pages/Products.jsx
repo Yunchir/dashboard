@@ -13,7 +13,7 @@ export default function Products() {
   const { data, setData } = useContext(DataContext);
 
   function deleteProductHandler(id) {
-    axios.delete(`http://localhost:2020/delete/${id}`);
+    axios.delete(`http://localhost:6060/delete/${id}`);
   }
   return (
     <div>

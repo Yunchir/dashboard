@@ -22,7 +22,7 @@ export default function Dashboard() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:2020/products")
+      .get("http://localhost:6060/products")
       .then((res) => setData(res.data));
   }, []);
   console.log("data:", data);

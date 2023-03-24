@@ -1,5 +1,5 @@
 // import ProductsModal from "./ProductsModal";
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import Button from "react-bootstrap/Button";
 import Offcanvas from "react-bootstrap/Offcanvas";
 import axios from "axios";
@@ -7,6 +7,16 @@ import "../../styles/detail.css";
 import { DataContext } from "../../App.js";
 
 export default function Detail(prop) {
+  const [file, setFile] = useState();
+  const [details, setDetails] = useState({
+    name: "",
+    price: null,
+    stock: null,
+    sale: null,
+    description: "",
+    category: "",
+  });
+
   const { setShow, show } = prop;
 
   const { data, setData } = useContext(DataContext);
@@ -15,24 +25,39 @@ export default function Detail(prop) {
   const handleShow = () => setShow(true);
   // const [hi, setHi] = useState([]);
 
-  function send(e) {
-    e.preventDefault();
-
-    axios.post("http://localhost:2020/products/add", {
-      // image: e.target.proImage.value,
-      name: e.target.proName.value,
-      price: e.target.proPrice.value,
-      stock: e.target.proStock.value,
-      sale: e.target.proSale.value,
-      category: e.target.category.value,
-    });
-    console.log("dataa name:", data[0].name);
+  function detailsHandler(e) {
+    setDetails({ ...details, [e.target.name]: e.target.value });
   }
-  function uploadHandler(e) {
-    const image = new FormData();
-    image.append("image", e.target.files[0]);
+  function fileHandler(e) {
     console.log(e.target.files[0]);
+    setFile(e.target.files[0]);
   }
+  function handleSubmit(e) {
+    e.preventDefault();
+    const formData = new FormData();
+
+    formData.append("details", JSON.stringify(details));
+    formData.append("file", file);
+    axios
+      .post("http://localhost:6060/products/add", formData)
+      .then((res) => console.log(res));
+    // axios
+    //   .post({
+    //     method: "POST",
+    //     url: "http://localhost:6060/products/add",
+    //     data: formData,
+    //     headers: {
+    //       Content_type: "multipart/form-data",
+    //     },
+    //   })
+    //   .then((res) => console.log(res));
+    // console.log("dataa name:", data[0].name);
+  }
+  // function uploadHandler(e) {
+  //   // const formData = new FormData();
+  //   // formData.append("image", e.target.files[0]);
+  //   console.log(e.target.files[0]);
+  // }
 
   return (
     <div>
@@ -51,31 +76,7 @@ export default function Detail(prop) {
               <section className="off-order-top-head">
                 <p>Барааны зураг</p>
                 <input
-                  onChange={uploadHandler}
-                  className="fileName"
-                  type="file"
-                  // value={upload}
-                  name="proImage"
-                  defaultValue={data ? data.image : ""}
-                />
-                <input
-                  onChange={uploadHandler}
-                  className="fileName"
-                  type="file"
-                  // value={upload}
-                  name="proImage"
-                  defaultValue={data ? data.image : ""}
-                />
-                <input
-                  onChange={uploadHandler}
-                  className="fileName"
-                  type="file"
-                  // value={upload}
-                  name="proImage"
-                  defaultValue={data ? data.image : ""}
-                />
-                <input
-                  onChange={uploadHandler}
+                  onChange={fileHandler}
                   className="fileName"
                   type="file"
                   // value={upload}
@@ -84,14 +85,15 @@ export default function Detail(prop) {
                 />
               </section>
             </div>
-            <form className="off-order-main" onSubmit={send}>
+            <form className="off-order-main" encType="multipart/form-data">
               <section className="off-order-main-top">
                 <section className="off-order-main-top-start">
                   <section>
                     <p>Барааны нэр</p>
                     <input
+                      onChange={detailsHandler}
                       type="text"
-                      name="proName"
+                      name="name"
                       placeholder="Name"
                       defaultValue={data ? data.name : ""}
                     />
@@ -99,8 +101,9 @@ export default function Detail(prop) {
                   <section>
                     <p>Барааны үнэ</p>
                     <input
+                      onChange={detailsHandler}
                       type="text"
-                      name="proPrice"
+                      name="price"
                       placeholder="Price"
                       defaultValue={data ? data.price : ""}
                     />
@@ -109,8 +112,9 @@ export default function Detail(prop) {
                   <section>
                     <p>Үлдэгдэл</p>
                     <input
+                      onChange={detailsHandler}
                       type="text"
-                      name="proStock"
+                      name="stock"
                       placeholder="Stock"
                       defaultValue={data ? data.stock : ""}
                     />
@@ -119,8 +123,9 @@ export default function Detail(prop) {
                 <section>
                   <p>Хямдрал(%-иар)</p>
                   <input
+                    onChange={detailsHandler}
                     type="text"
-                    name="proSale"
+                    name="sale"
                     id=""
                     placeholder="Sale"
                     defaultValue={data ? data.sale : ""}
@@ -144,7 +149,7 @@ export default function Detail(prop) {
               <button
                 className="off-order-footer-footer-button"
                 type="submit"
-                onClick={send}
+                onClick={handleSubmit}
               >
                 ХАДГАЛАХ
               </button>
